@@ -59,6 +59,3 @@ extension TowerLevel3 {
         print("Tower is fired enemy")
     }
 }
-
-
-
