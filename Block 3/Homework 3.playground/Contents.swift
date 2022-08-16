@@ -72,6 +72,7 @@ class Tavern {
 }
 
 let tavern = Tavern(fighers: [Boxer(), Butcher()], movers: [Farmer(), Gardener()])
+
 tavern.enterTavern(hero: Batman())
 
 /* 2 -> Отдельный проект
@@ -83,7 +84,7 @@ tavern.enterTavern(hero: Batman())
  ○ Эти функции должны вызываться и опционалы должны быть “развернуты”
  ○ Перенесите эту игру в XCode проект
  Организуйте красивую файловую структуру, разные типы в разные файлы. Используйте папки.
-   4 -> Добавить во 2
+ 4 -> Добавить во 2
  Вернитесь к созданной вами игре во втором задании и добавьте для всех протоколов реализацию методов по умолчанию
  */
 
@@ -106,13 +107,19 @@ extension Int {
     }
 }
 
-5.exponentiation(pow: 5)
+5.exponentiation(pow: 3)
 
 extension String {
-    var isPalindrome: Bool { return self.lowercased() == String(self.lowercased().reversed()) }
+    var isPalindrome: Bool {
+        if self.count < 2 {
+            return false
+        }
+        return self.lowercased() == String(self.lowercased().reversed())
+    }
 }
-                                                   
+
 let test = "Bob"
+
 test.isPalindrome
 
 
@@ -140,10 +147,10 @@ protocol Summable {
 }
 
 extension Int: Summable{
-    
+
 }
 extension String: Summable {
-    
+
 }
 extension Double: Summable {
     
