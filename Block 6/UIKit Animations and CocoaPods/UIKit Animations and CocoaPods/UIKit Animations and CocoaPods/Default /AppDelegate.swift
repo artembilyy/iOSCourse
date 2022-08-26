@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  UIKit Animations, CocoaPods
+//  UIKit Animations and CocoaPods
 //
-//  Created by Артем Билый on 24.08.2022.
+//  Created by Артем Билый on 25.08.2022.
 //
 
 import UIKit
@@ -10,15 +10,8 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        UIFont.familyNames.forEach( { name in
-            for font in UIFont.fontNames(forFamilyName: name) {
-                print("\n \(font)")
-            }
-        })
         return true
     }
 
@@ -35,7 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
+    
+    // Lock the orientation to Portrait mode
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask(rawValue: UIInterfaceOrientationMask.portrait.rawValue)
+    }
+    
 }
 

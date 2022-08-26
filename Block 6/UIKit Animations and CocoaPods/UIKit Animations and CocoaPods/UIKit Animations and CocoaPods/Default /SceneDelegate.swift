@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  UIKit Animations, CocoaPods
+//  UIKit Animations and CocoaPods
 //
-//  Created by Артем Билый on 24.08.2022.
+//  Created by Артем Билый on 25.08.2022.
 //
 
 import UIKit
