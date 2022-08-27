@@ -10,7 +10,10 @@ class FourthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+       setupUI()
+    }
+    
+    func setupUI() {
         
         let clearCircle = addCircleToScreen(view: view, centerX: view.bounds.width / 2, centerY: view.bounds.height / 2, color: .white, hwRatio: 3.3)
         
@@ -26,6 +29,7 @@ class FourthViewController: UIViewController {
         clearCircle.bringSubviewToFront(greenCircle)
         clearCircle.bringSubviewToFront(blueCircle)
         clearCircle.clipsToBounds = true
+        view.backgroundColor = .white
     }
 }
 

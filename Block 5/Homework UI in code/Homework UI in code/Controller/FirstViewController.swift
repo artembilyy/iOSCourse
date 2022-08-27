@@ -12,12 +12,16 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
-        
+        setupUI()
+    }
+    
+    func setupUI() {
+    
         let greenCircleCenter = addCircleToScreen(view: view,
                                                   centerX: view.center.x,
                                                   centerY: view.center.y,
                                                   color: .systemGreen)
+        view.backgroundColor = .white
     }
 }
 

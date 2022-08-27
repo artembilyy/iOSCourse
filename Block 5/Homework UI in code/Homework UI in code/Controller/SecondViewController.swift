@@ -11,7 +11,10 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        setupUI()
+    }
+    
+    func setupUI() {
         
         let yellowCircle = addCircleToScreen(view: view,
                                             centerX: view.center.x,
@@ -27,6 +30,8 @@ class SecondViewController: UIViewController {
                                             centerX: view.center.x,
                                             centerY: view.frame.height / 1.3,
                                             color: .systemGreen)
+        
+        view.backgroundColor = .white
     }
 }
 

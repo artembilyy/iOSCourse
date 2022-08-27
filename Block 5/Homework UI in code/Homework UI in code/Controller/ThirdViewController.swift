@@ -12,7 +12,10 @@ class ThirdViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        setupUI()
+    }
+    
+    func setupUI() {
         
         let yellowCircle = addCircleToScreen(view: view,
                                             centerX: view.center.x,
@@ -30,7 +33,7 @@ class ThirdViewController: UIViewController {
                                             color: .systemGreen)
         yellowCircle.alpha = 0.8
         view.bringSubviewToFront(yellowCircle)
-        
+        view.backgroundColor = .white
     }
 }
 
