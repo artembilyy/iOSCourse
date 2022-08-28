@@ -24,8 +24,3 @@ class FirstViewController: UIViewController {
         view.backgroundColor = .white
     }
 }
-
-
-
-
-

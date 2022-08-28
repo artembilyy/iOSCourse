@@ -32,5 +32,3 @@ class FourthViewController: UIViewController {
         view.backgroundColor = .white
     }
 }
-
-

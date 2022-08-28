@@ -30,14 +30,6 @@ class SecondViewController: UIViewController {
                                             centerX: view.center.x,
                                             centerY: view.frame.height / 1.3,
                                             color: .systemGreen)
-        
         view.backgroundColor = .white
     }
 }
-
-
-
-
-
-
-
