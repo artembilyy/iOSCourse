@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 class SecondViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
     }
     
     var circle = Circle()
@@ -20,26 +20,25 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var pathForAnimation: UIView! //added in storyboard
     
     func setupUI() {
-        let bounceButton: UIButton = {
-            let bounceButton = UIButton.init(type: .system)
-            bounceButton.frame = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: view.bounds.width / 3, height: view.bounds.width / 8)
-            bounceButton.center.x = view.center.x
-            bounceButton.setTitle("Run!", for: .normal)
-            bounceButton.setTitleColor(.systemBlue, for: .normal)
-            bounceButton.titleLabel?.font = UIFont(name: "LabGrotesque-Regular", size: view.bounds.width / 12)
-            bounceButton.addTarget(self, action: #selector(topButtonPressed(_ :)), for: .touchUpInside)
-            return bounceButton
+        let runButton: UIButton = {
+            let runButton = UIButton.init(type: .system)
+            runButton.frame = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: view.bounds.width / 3, height: view.bounds.width / 8)
+            runButton.center.x = view.center.x
+            runButton.setTitle("Run!", for: .normal)
+            runButton.setTitleColor(.systemBlue, for: .normal)
+            runButton.titleLabel?.font = UIFont(name: "LabGrotesque-Regular", size: view.bounds.width / 12)
+            runButton.addTarget(self, action: #selector(buttonPressed(_ :)), for: .touchUpInside)
+            return runButton
         }()
         
         circle = addCircleToScreen(view: pathForAnimation, centerX: pathForAnimation.bounds.minX, centerY: pathForAnimation.bounds.minY, color: .systemIndigo, hwRatio: 9)
         
-        view.addSubview(bounceButton)
+        view.addSubview(runButton)
         view.backgroundColor = .white
         pathForAnimation.backgroundColor = .white
-        
     }
     
-    @objc func topButtonPressed(_ sender: UIButton) {
+    @objc func buttonPressed(_ sender: UIButton) {
         
         UIView.animateKeyframes(withDuration: 8, delay: 0, options: [.autoreverse]) {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5, animations: { self.circle.center = CGPoint(x: self.pathForAnimation.bounds.maxX, y: self.pathForAnimation.bounds.minY) })
@@ -49,6 +48,3 @@ class SecondViewController: UIViewController {
         }
     }
 }
-
-
-

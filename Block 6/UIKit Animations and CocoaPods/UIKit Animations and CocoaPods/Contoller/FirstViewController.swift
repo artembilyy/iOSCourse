@@ -31,8 +31,9 @@ class FirstViewController: UIViewController {
             bounceButton.center.x = view.center.x
             bounceButton.setTitle("Bounce!", for: .normal)
             bounceButton.setTitleColor(.systemBlue, for: .normal)
-            bounceButton.titleLabel?.font = UIFont(name: "LabGrotesque-Regular", size: view.bounds.width / 12)
-            bounceButton.addTarget(self, action: #selector(topButtonPressed(_ :)), for: .touchUpInside)
+            bounceButton.titleLabel?.font = UIFont(name: "LabGrotesque-Regular",
+                                                   size: view.bounds.width / 12)
+            bounceButton.addTarget(self, action: #selector(buttonPressed(_ :)), for: .touchUpInside)
             return bounceButton
         }()
         
@@ -46,19 +47,18 @@ class FirstViewController: UIViewController {
         imageView.frame = CGRect(x: circle.bounds.minX, y: circle.bounds.minX, width: circle.bounds.width, height: circle.bounds.height)
         imageView.image = UIImage(named: "ball")
         
-        
         view.backgroundColor = .white
         view.addSubview(bounceButton)
         circle.addSubview(imageView)
-        
     }
     
-    @objc func topButtonPressed(_ sender: UIButton) {
+    @objc func buttonPressed(_ sender: UIButton) {
         UIView.animate(withDuration: 1,
                        delay: 0,
                        usingSpringWithDamping: 4,
                        initialSpringVelocity: 5,
                        options: [.curveEaseInOut, .autoreverse, .repeat]) {
+            self.circle.rotate()
             self.circle.center = self.view.center
         }
     }

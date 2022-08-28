@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		78EF6A095DB266DBAA735F56 /* Pods_UIKit_Animations_and_CocoaPods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880DFB76C2B673CB8A3956EB /* Pods_UIKit_Animations_and_CocoaPods.framework */; };
+		EF87C78D28BBBBEA002F8943 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF87C78C28BBBBEA002F8943 /* ThirdViewController.swift */; };
+		EF87C79028BBBD4A002F8943 /* cat.json in Resources */ = {isa = PBXBuildFile; fileRef = EF87C78F28BBBD4A002F8943 /* cat.json */; };
 		EF96C56428B7A96000D40497 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF96C56328B7A96000D40497 /* FirstViewController.swift */; };
 		EF96C56628B7A96E00D40497 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF96C56528B7A96E00D40497 /* SecondViewController.swift */; };
-		EF96C56828B7A97800D40497 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF96C56728B7A97800D40497 /* ThirdViewController.swift */; };
+		EFB01CF628BA860E00810734 /* LabGrotesque-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFB01CF528BA860E00810734 /* LabGrotesque-Regular.ttf */; };
 		EFC106A428B6D876002AEF57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC106A328B6D876002AEF57 /* AppDelegate.swift */; };
 		EFC106A628B6D876002AEF57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC106A528B6D876002AEF57 /* SceneDelegate.swift */; };
 		EFC106A828B6D876002AEF57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC106A728B6D876002AEF57 /* ViewController.swift */; };
@@ -19,16 +21,17 @@
 		EFC106B028B6D877002AEF57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFC106AE28B6D877002AEF57 /* LaunchScreen.storyboard */; };
 		EFD2DC5828B78C5F004B94F2 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD2DC5728B78C5F004B94F2 /* Circle.swift */; };
 		EFD2DC5A28B78CAF004B94F2 /* FuncCreateCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD2DC5928B78CAF004B94F2 /* FuncCreateCircle.swift */; };
-		EFD2DC5D28B78D73004B94F2 /* LabGrotesque-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFD2DC5C28B78D73004B94F2 /* LabGrotesque-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		336113465DDEE792818E0659 /* Pods-UIKit Animations and CocoaPods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIKit Animations and CocoaPods.debug.xcconfig"; path = "Target Support Files/Pods-UIKit Animations and CocoaPods/Pods-UIKit Animations and CocoaPods.debug.xcconfig"; sourceTree = "<group>"; };
 		880DFB76C2B673CB8A3956EB /* Pods_UIKit_Animations_and_CocoaPods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UIKit_Animations_and_CocoaPods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CF0577274CF36F7C64D758 /* Pods-UIKit Animations and CocoaPods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIKit Animations and CocoaPods.release.xcconfig"; path = "Target Support Files/Pods-UIKit Animations and CocoaPods/Pods-UIKit Animations and CocoaPods.release.xcconfig"; sourceTree = "<group>"; };
+		EF87C78C28BBBBEA002F8943 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		EF87C78F28BBBD4A002F8943 /* cat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = cat.json; path = ../../../../../../Downloads/cat.json; sourceTree = "<group>"; };
 		EF96C56328B7A96000D40497 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		EF96C56528B7A96E00D40497 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		EF96C56728B7A97800D40497 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		EFB01CF528BA860E00810734 /* LabGrotesque-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LabGrotesque-Regular.ttf"; sourceTree = "<group>"; };
 		EFC106A028B6D876002AEF57 /* UIKit Animations and CocoaPods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UIKit Animations and CocoaPods.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFC106A328B6D876002AEF57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFC106A528B6D876002AEF57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,7 +42,6 @@
 		EFC106B128B6D877002AEF57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFD2DC5728B78C5F004B94F2 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		EFD2DC5928B78CAF004B94F2 /* FuncCreateCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncCreateCircle.swift; sourceTree = "<group>"; };
-		EFD2DC5C28B78D73004B94F2 /* LabGrotesque-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "LabGrotesque-Regular.ttf"; path = "../../../../../../iOSCource GitHub/Block 6/UIKit Animations, CocoaPods/UIKit Animations, CocoaPods/Fonts/LabGrotesque-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EF87C78E28BBBD20002F8943 /* Lottie animations */ = {
+			isa = PBXGroup;
+			children = (
+				EF87C78F28BBBD4A002F8943 /* cat.json */,
+			);
+			path = "Lottie animations";
+			sourceTree = "<group>";
+		};
 		EFC1069728B6D876002AEF57 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +102,7 @@
 		EFC106A228B6D876002AEF57 /* UIKit Animations and CocoaPods */ = {
 			isa = PBXGroup;
 			children = (
+				EF87C78E28BBBD20002F8943 /* Lottie animations */,
 				EFD2DC5528B78BE3004B94F2 /* Model */,
 				EFD2DC5428B78BDA004B94F2 /* View */,
 				EFD2DC5628B78BF5004B94F2 /* Contoller */,
@@ -136,7 +147,7 @@
 				EFC106A728B6D876002AEF57 /* ViewController.swift */,
 				EF96C56328B7A96000D40497 /* FirstViewController.swift */,
 				EF96C56528B7A96E00D40497 /* SecondViewController.swift */,
-				EF96C56728B7A97800D40497 /* ThirdViewController.swift */,
+				EF87C78C28BBBBEA002F8943 /* ThirdViewController.swift */,
 			);
 			path = Contoller;
 			sourceTree = "<group>";
@@ -144,7 +155,7 @@
 		EFD2DC5B28B78D59004B94F2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				EFD2DC5C28B78D73004B94F2 /* LabGrotesque-Regular.ttf */,
+				EFB01CF528BA860E00810734 /* LabGrotesque-Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -210,8 +221,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFC106B028B6D877002AEF57 /* LaunchScreen.storyboard in Resources */,
-				EFD2DC5D28B78D73004B94F2 /* LabGrotesque-Regular.ttf in Resources */,
+				EFB01CF628BA860E00810734 /* LabGrotesque-Regular.ttf in Resources */,
 				EFC106AD28B6D877002AEF57 /* Assets.xcassets in Resources */,
+				EF87C79028BBBD4A002F8943 /* cat.json in Resources */,
 				EFC106AB28B6D876002AEF57 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,7 +283,7 @@
 				EF96C56428B7A96000D40497 /* FirstViewController.swift in Sources */,
 				EF96C56628B7A96E00D40497 /* SecondViewController.swift in Sources */,
 				EFC106A628B6D876002AEF57 /* SceneDelegate.swift in Sources */,
-				EF96C56828B7A97800D40497 /* ThirdViewController.swift in Sources */,
+				EF87C78D28BBBBEA002F8943 /* ThirdViewController.swift in Sources */,
 				EFD2DC5A28B78CAF004B94F2 /* FuncCreateCircle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
