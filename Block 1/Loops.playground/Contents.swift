@@ -29,7 +29,7 @@ let ageOfFriends = [20, 17, 22, 28, 16, 25, 19, 15, 24, 17]
 for age in ageOfFriends {
     print("I am \(age) years old")
     if age < 18 {
-        var i = 0
+        var i = age
         print("I already celebreted:")
         while i <= age {
             i += 1

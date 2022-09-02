@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomMenuBlock" customModule="Custom_UI_monobank">
+            <connections>
+                <outlet property="contentView" destination="IbM-xi-8A0" id="VEt-M0-SdD"/>
+                <outlet property="labelBottom" destination="RcL-jN-KIW" id="kmX-1f-Mdp"/>
+                <outlet property="pictureLeft" destination="3QT-sc-EAT" id="W2c-VV-T9I"/>
+                <outlet property="pictureView" destination="QhP-Kr-LCX" id="KYF-3j-24j"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="592" height="311"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IbM-xi-8A0">
+                    <rect key="frame" x="0.0" y="0.0" width="592" height="311"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QhP-Kr-LCX">
+                            <rect key="frame" x="8" y="8" width="100" height="100"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="money" translatesAutoresizingMaskIntoConstraints="NO" id="3QT-sc-EAT">
+                                    <rect key="frame" x="10" y="10" width="80" height="80"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="H41-rO-QbE"/>
+                                <constraint firstItem="3QT-sc-EAT" firstAttribute="top" secondItem="QhP-Kr-LCX" secondAttribute="top" constant="10" id="IF1-bn-kvv"/>
+                                <constraint firstAttribute="trailing" secondItem="3QT-sc-EAT" secondAttribute="trailing" constant="10" id="LYJ-Sl-3Hq"/>
+                                <constraint firstItem="3QT-sc-EAT" firstAttribute="leading" secondItem="QhP-Kr-LCX" secondAttribute="leading" constant="10" id="Xds-QL-BIa"/>
+                                <constraint firstAttribute="bottom" secondItem="3QT-sc-EAT" secondAttribute="bottom" constant="10" id="moR-dv-XlZ"/>
+                                <constraint firstAttribute="height" constant="100" id="vPA-Yx-xbx"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Installment plan" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RcL-jN-KIW">
+                            <rect key="frame" x="8" y="124" width="169" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gd-8p-LAK">
+                            <rect key="frame" x="0.0" y="0.0" width="592" height="311"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain"/>
+                            <connections>
+                                <action selector="menuButtonPressed:" destination="-1" eventType="touchUpInside" id="OY0-4z-eja"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.15294116739999999" green="0.15294116739999999" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstItem="QhP-Kr-LCX" firstAttribute="leading" secondItem="IbM-xi-8A0" secondAttribute="leading" constant="8" id="BBc-ig-UuU"/>
+                        <constraint firstItem="RcL-jN-KIW" firstAttribute="top" secondItem="QhP-Kr-LCX" secondAttribute="bottom" constant="16" id="XN8-vP-2mn"/>
+                        <constraint firstItem="RcL-jN-KIW" firstAttribute="leading" secondItem="IbM-xi-8A0" secondAttribute="leading" constant="8" id="bFb-ez-Tff"/>
+                        <constraint firstItem="QhP-Kr-LCX" firstAttribute="top" secondItem="IbM-xi-8A0" secondAttribute="top" constant="8" id="qlA-o4-sP1"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="IbM-xi-8A0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3zg-Sa-S3c"/>
+                <constraint firstItem="IbM-xi-8A0" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="SNQ-rk-htC"/>
+                <constraint firstItem="IbM-xi-8A0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="d5p-5b-M5d"/>
+                <constraint firstAttribute="bottom" secondItem="IbM-xi-8A0" secondAttribute="bottom" id="vCG-iO-f9P"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-18.840579710144929" y="75.334821428571431"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="money" width="512" height="512"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
