@@ -42,9 +42,9 @@ class SecondViewController: UIViewController {
         
         UIView.animateKeyframes(withDuration: 8, delay: 0, options: [.autoreverse]) {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5, animations: { self.circle.center = CGPoint(x: self.pathForAnimation.bounds.maxX, y: self.pathForAnimation.bounds.minY) })
-            UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.4, animations: { self.circle.center = CGPoint(x: self.pathForAnimation.bounds.maxX, y: self.pathForAnimation.bounds.maxY) })
+            UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.6, animations: { self.circle.center = CGPoint(x: self.pathForAnimation.bounds.maxX, y: self.pathForAnimation.bounds.maxY) })
             UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5, animations: { self.circle.center = CGPoint(x: self.pathForAnimation.bounds.minX, y: self.pathForAnimation.bounds.maxY) })
-            UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.4, animations: { self.circle.center = CGPoint(x: self.pathForAnimation.bounds.minX, y: self.pathForAnimation.bounds.minY) })
+            UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.6, animations: { self.circle.center = CGPoint(x: self.pathForAnimation.bounds.minX, y: self.pathForAnimation.bounds.minY) })
         }
     }
 }

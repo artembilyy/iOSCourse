@@ -8,15 +8,15 @@
 import UIKit
 
 class ViewController: UIViewController, CustomMenuBlockDelegate {
-    func menuElementPressed(typeBlock: typeBlock) {
-        switch typeBlock {
-        case .plan:
-            print("Menu Block \(typeBlock.rawValue)")
-        case .archive:
-            print("Menu Block \(typeBlock.rawValue)")
-        case .payments:
-            print("Menu Block \(typeBlock.rawValue)")
-        }
+    func menuElementPressed(_: CustomMenuBlock) {
+//        switch typeBlock {
+//        case .plan:
+//            print("Menu Block \(typeBlock.rawValue)")
+//        case .archive:
+//            print("Menu Block \(typeBlock.rawValue)")
+//        case .payments:
+//            print("Menu Block \(typeBlock.rawValue)")
+//        }
     }
     
     @IBOutlet weak var customCurrencyRate: CustomCurrencyRate!
