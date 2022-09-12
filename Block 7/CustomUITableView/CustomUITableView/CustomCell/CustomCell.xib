@@ -23,27 +23,42 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Og7-2L-kFl">
                                 <rect key="frame" x="0.0" y="0.0" width="400" height="79"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K44-Q2-0pK" userLabel="avatar">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K44-Q2-0pK" userLabel="avatar">
                                         <rect key="frame" x="8" y="16" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="tintColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="ZjE-cT-iD0"/>
+                                            <constraint firstAttribute="width" constant="50" id="y6J-Ur-ivF"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="anyname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yh5-Ui-nhX">
-                                        <rect key="frame" x="66" y="6" width="80" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="anyname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yh5-Ui-nhX">
+                                        <rect key="frame" x="66" y="27" width="80.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNn-V8-es4">
-                                        <rect key="frame" x="375" y="16" width="16.5" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNn-V8-es4">
+                                        <rect key="frame" x="375.5" y="27" width="16.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="K44-Q2-0pK" firstAttribute="top" secondItem="Og7-2L-kFl" secondAttribute="top" constant="16" id="3Kf-Ja-odO"/>
+                                    <constraint firstItem="BNn-V8-es4" firstAttribute="top" secondItem="Og7-2L-kFl" secondAttribute="top" constant="27" id="C5h-Gd-QzG"/>
+                                    <constraint firstAttribute="trailing" secondItem="BNn-V8-es4" secondAttribute="trailing" constant="8" id="FwU-hi-DeR"/>
+                                    <constraint firstItem="K44-Q2-0pK" firstAttribute="leading" secondItem="Og7-2L-kFl" secondAttribute="leading" constant="8" id="GZ8-ms-fbp"/>
+                                    <constraint firstItem="Yh5-Ui-nhX" firstAttribute="leading" secondItem="K44-Q2-0pK" secondAttribute="trailing" constant="8" symbolic="YES" id="VfD-5H-2ZD"/>
+                                    <constraint firstItem="Yh5-Ui-nhX" firstAttribute="top" secondItem="Og7-2L-kFl" secondAttribute="top" constant="27" id="dIL-Bs-hsu"/>
+                                    <constraint firstItem="BNn-V8-es4" firstAttribute="leading" secondItem="Yh5-Ui-nhX" secondAttribute="trailing" constant="229" id="gyx-WC-Zem"/>
+                                </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5NV-Cy-ExG">
                                 <rect key="frame" x="0.0" y="87" width="400" height="380"/>

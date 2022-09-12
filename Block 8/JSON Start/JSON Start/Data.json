@@ -1,0 +1,94 @@
+{
+    "count": 4,
+    "companyDescription": "Tesla is building a world powered by solar energy, running on batteries and transported by electric vehicles. Explore the most recent impact of our products, people and supply chain.",
+    "listOfData": [
+        {
+            "name": "Tesla",
+            "modelNumber": "Model S",
+            "countries": ["US", "CN", "EU"],
+            "price": {
+                "regions": [
+                    {
+                        "name": "US",
+                        "price": 96590
+                    },
+                    {
+                        "name": "CN",
+                        "price": 97890
+                    },
+                    {
+                        "name": "EU",
+                        "price": 99800
+                    }
+                ]
+            },
+            "year": 2022
+        },
+        {
+            "name": "Tesla",
+            "modelNumber": "Model 3",
+            "countries": ["US", "CN", "EU"],
+            "price": {
+                "regions": [
+                    {
+                        "name": "US",
+                        "price": 40030
+                    },
+                    {
+                        "name": "CN",
+                        "price": 41150
+                    },
+                    {
+                        "name": "EU",
+                        "price": 42890
+                    }
+                ]
+            },
+            "year": 2021
+        },
+        {
+            "name": "Tesla",
+            "modelNumber": "Model X",
+            "countries": ["US", "CN", "EU"],
+            "price": {
+                "regions": [
+                    {
+                        "name": "US",
+                        "price": 112590
+                    },
+                    {
+                        "name": "CN",
+                        "price": 113950
+                    },
+                    {
+                        "name": "EU",
+                        "price": 116350
+                    }
+                ]
+            },
+            "year": 2021
+        },
+        {
+            "name": "Tesla",
+            "modelNumber": "Model Y",
+            "countries": ["US", "CN", "EU"],
+            "price": {
+                "regions": [
+                    {
+                        "name": "US",
+                        "price": 58190
+                    },
+                    {
+                        "name": "CN",
+                        "price": 60230
+                    },
+                    {
+                        "name": "EU",
+                        "price": 61030
+                    }
+                ]
+            },
+            "year": 2022
+        }
+    ]
+}

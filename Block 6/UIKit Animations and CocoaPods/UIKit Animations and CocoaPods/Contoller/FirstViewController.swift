@@ -57,7 +57,10 @@ class FirstViewController: UIViewController {
                        delay: 0,
                        usingSpringWithDamping: 4,
                        initialSpringVelocity: 5,
-                       options: [.curveEaseInOut, .autoreverse, .repeat]) {
+                       options: [.curveEaseInOut, .autoreverse, .repeat], completion: { item in
+            
+            
+        }) {
             self.circle.rotate()
             self.circle.center = self.view.center
         }
