@@ -54,7 +54,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             for id in movies[indexPath.row].genreIDS {
                 for genre in genres {
                     if id == genre.id {
-                        currentGenre += genre.name + ", "
+                        currentGenre == "\nGenre: " ? (currentGenre += genre.name) : (currentGenre += ", " + genre.name)
                     }
                 }
             }
@@ -63,7 +63,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             
             var configuration = cell.defaultContentConfiguration()
             configuration.image = UIImage(systemName: "film")
-            configuration.text = (((movies[indexPath.row].originalTitle ?? movies[indexPath.row].name) ?? movies[indexPath.row].title) ?? "") + currentGenre.dropLast(2)
+            configuration.text = (((movies[indexPath.row].originalTitle ?? movies[indexPath.row].name) ?? movies[indexPath.row].title) ?? "") + currentGenre
             
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.font = UIFont(name: "Arial", size: 16)
@@ -76,7 +76,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             var configuration = cellGenres.defaultContentConfiguration()
             configuration.image = UIImage(systemName: "star.circle.fill")
             configuration.text = genres[indexPath.row].name
-            cellGenres.backgroundColor = .white
             cellGenres.contentConfiguration = configuration
             return cellGenres
         }
@@ -103,7 +102,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             label.text = "🍿 Top Films this week"
             label.textAlignment = .justified
             label.font = .systemFont(ofSize: 32)
-            label.textColor = .black
             
             headerView.addSubview(label)
     
@@ -116,9 +114,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             label.text = "🎬 List of ganres"
             label.font = .systemFont(ofSize: 32)
             label.textAlignment = .justified
-            label.textColor = .black
             
             headerView.addSubview(label)
+            
             return headerView
         }
     }

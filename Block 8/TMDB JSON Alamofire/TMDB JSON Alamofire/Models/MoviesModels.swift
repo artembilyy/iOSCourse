@@ -31,10 +31,10 @@ struct Movies: Codable {
     let backdropPath: String
     let id: Int
     let title: String?
-    let originalLanguage: OriginalLanguage
+    let originalLanguage: String
     let originalTitle: String?
     let overview, posterPath: String
-    let mediaType: MediaType
+    let mediaType: String
     let genreIDS: [Int]
     let popularity: Double
     let releaseDate: String?

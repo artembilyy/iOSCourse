@@ -1,0 +1,5 @@
+target 'TMDB JSON Alamofire' do
+
+pod 'Alamofire'
+
+end
