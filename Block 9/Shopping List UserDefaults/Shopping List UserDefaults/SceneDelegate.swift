@@ -18,8 +18,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window?.windowScene = windowScene
+        let tabBarController = UITabBarController()
         let controller = ViewController()
-        let navigationController = UINavigationController(rootViewController: controller)
+        let saveController = SaveItemsViewController()
+        let firstItem = UITabBarItem(title: "CheckList", image: UIImage(systemName: "checklist"), tag: 1)
+        let secondItem = UITabBarItem(title: "Saved", image: UIImage(systemName: "rectangle.fill.on.rectangle.fill"), tag: 2)
+        controller.tabBarItem = firstItem
+        saveController.tabBarItem = secondItem
+        tabBarController.viewControllers = [controller, saveController]
+        let navigationController = UINavigationController(rootViewController: tabBarController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }

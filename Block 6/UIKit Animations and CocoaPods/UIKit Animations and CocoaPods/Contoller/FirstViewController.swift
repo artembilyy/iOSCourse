@@ -12,6 +12,7 @@ import UIKit
 
 class FirstViewController: UIViewController {
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -19,10 +20,11 @@ class FirstViewController: UIViewController {
     
     @IBOutlet weak var pathForAnimation: UIView!
     
+    var bounceButton = UIButton()
     var circle = UIView()
     
     func setupUI() {
-        let bounceButton: UIButton = {
+            bounceButton = {
             let bounceButton = UIButton.init(type: .system)
             bounceButton.frame = CGRect(x: view.bounds.midX,
                                         y: view.bounds.midY - (view.bounds.midY / 1.8),
@@ -53,16 +55,14 @@ class FirstViewController: UIViewController {
     }
     
     @objc func buttonPressed(_ sender: UIButton) {
-        UIView.animate(withDuration: 1,
-                       delay: 0,
-                       usingSpringWithDamping: 4,
-                       initialSpringVelocity: 5,
-                       options: [.curveEaseInOut, .autoreverse, .repeat], completion: { item in
-            
-            
-        }) {
+        bounceButton.isEnabled = false
+        let startPoint = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.maxY - (self.view.bounds.width / 3.3))
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 4, initialSpringVelocity: 5, options: [.autoreverse, .curveEaseInOut, .repeat]) {
             self.circle.rotate()
             self.circle.center = self.view.center
+        } completion: { completed in
+            self.circle.center = startPoint
+            self.bounceButton.isEnabled = true
         }
     }
 }

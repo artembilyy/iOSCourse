@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     var tableView = UITableView()
     var addItemButton = UIButton()
     var deleteAllButton = UIButton()
-
+    
     var items = UserDefaults.standard.stringArray(forKey: "items") ?? [] {
         didSet {
             UserDefaults.standard.set(items, forKey: "items")
@@ -20,23 +20,25 @@ class ViewController: UIViewController {
             tableView.reloadData()
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        setupUI()
+        view.addSubview(tableView)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
     }
+    override func viewWillAppear(_ animated: Bool) {
+        setupUI()
+    }
     
     func setupUI() {
-        
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Shopping List"
+        self.tabBarController?.navigationController?.navigationBar.prefersLargeTitles = true
+        self.tabBarController?.navigationItem.title = "Shopping List"
         //buton to navBar".add"
         addItemButton = UIButton.init(type: .system)
         addItemButton.setImage(UIImage(systemName: "plus"), for: .normal)
@@ -50,14 +52,11 @@ class ViewController: UIViewController {
         deleteAllButton.setImage(UIImage(systemName: "trash"), for: .normal)
         deleteAllButton.addTarget(self, action: #selector(deleteAllIteams(_:)), for: .touchUpInside)
         
-        navigationItem.title = "Shopping List"
-        view.addSubview(tableView)
-
         let addButton = UIBarButtonItem(customView: addItemButton)
         let deleteButton = UIBarButtonItem(customView: deleteAllButton)
-        navigationItem.rightBarButtonItems = [addButton, deleteButton]
+        self.tabBarController?.navigationItem.rightBarButtonItems = [addButton, deleteButton]
     }
-        
+    
     @objc func addItemButtonPressed(_ sender: UIButton) {
         
         let alertMessage = UIAlertController(title: "New item", message: "Enter new shopping list item!", preferredStyle: .alert)
@@ -71,7 +70,7 @@ class ViewController: UIViewController {
                 items.append(newItem ?? "")
             }
         }
-
+        
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)
         
         alertMessage.addAction(cancelButton)
@@ -80,7 +79,6 @@ class ViewController: UIViewController {
     }
     
     @objc func deleteAllIteams(_ sender: UIButton) {
-        
         let alertMessage = UIAlertController(title: "Delete all items", message: nil, preferredStyle: .alert)
         self.present(alertMessage, animated: true, completion: nil)
         let delete = UIAlertAction(title: "Delete", style: .default) { [self] _ in
@@ -92,14 +90,17 @@ class ViewController: UIViewController {
         alertMessage.addAction(delete)
         alertMessage.addAction(cancelButton)
     }
+    
+    func saveItem() {
+        
+    }
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         items.count
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
@@ -107,9 +108,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.textAlignment = .left
         return cell
     }
-    
+}
+
+extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let cell = tableView.cellForRow(at: indexPath)
+        if cell!.accessoryType == UITableViewCell.AccessoryType.checkmark {
+            cell!.accessoryType = UITableViewCell.AccessoryType.none
+        } else {
+            cell!.accessoryType = UITableViewCell.AccessoryType.checkmark
+        }
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
@@ -123,5 +132,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let saveAction = UIContextualAction(style: .normal, title: "Save") {[weak self] _, _, compliton in
+            self?.saveItem()
+            compliton(true)
+        }
+        saveAction.backgroundColor = .systemGreen
+        return UISwipeActionsConfiguration(actions: [saveAction])
     }
 }

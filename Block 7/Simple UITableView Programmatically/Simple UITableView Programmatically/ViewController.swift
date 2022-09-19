@@ -55,4 +55,3 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(secondViewController, animated: true)
     }
 }
-

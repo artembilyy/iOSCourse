@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol CustomMenuBlockDelegate: NSObject {
+protocol CustomMenuBlockDelegate: AnyObject {
     func menuElementPressed(typeBlock: typeBlock)
 }
 
@@ -55,4 +55,3 @@ class CustomMenuBlock: UIView {
         self.typeBlock = typeBlock
     }
 }
-

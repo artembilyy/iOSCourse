@@ -39,7 +39,6 @@ class SecondViewController: UIViewController {
     }
     
     @objc func buttonPressed(_ sender: UIButton) {
-        
         UIView.animateKeyframes(withDuration: 8, delay: 0, options: [.autoreverse]) {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5, animations: { self.circle.center = CGPoint(x: self.pathForAnimation.bounds.maxX, y: self.pathForAnimation.bounds.minY) })
             UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.6, animations: { self.circle.center = CGPoint(x: self.pathForAnimation.bounds.maxX, y: self.pathForAnimation.bounds.maxY) })
