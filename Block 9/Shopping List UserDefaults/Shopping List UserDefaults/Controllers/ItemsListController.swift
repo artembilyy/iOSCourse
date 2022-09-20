@@ -1,13 +1,13 @@
 //
-//  ViewController.swift
+//  ItemsListControllerViewController.swift
 //  Shopping List UserDefaults
 //
-//  Created by Артем Билый on 18.09.2022.
+//  Created by Артем Билый on 20.09.2022.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class ItemsListController: UIViewController {
     
     var tableView = UITableView()
     var addItemButton = UIButton()
@@ -21,40 +21,46 @@ class ViewController: UIViewController {
         }
     }
     
+    var savedItems = UserDefaults.standard.stringArray(forKey: "savedItems") ?? [] {
+        didSet {
+            UserDefaults.standard.set(savedItems, forKey: "savedItems")
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.frame = view.bounds
-    }
-    override func viewWillAppear(_ animated: Bool) {
         setupUI()
     }
     
+    override func viewDidLayoutSubviews() {
+        tableView.frame = view.bounds
+    }
+    
     func setupUI() {
-        self.tabBarController?.navigationController?.navigationBar.prefersLargeTitles = true
-        self.tabBarController?.navigationItem.title = "Shopping List"
+        title = "Main List"
+        navigationController?.navigationBar.prefersLargeTitles = true
         //buton to navBar".add"
         addItemButton = UIButton.init(type: .system)
         addItemButton.setImage(UIImage(systemName: "plus"), for: .normal)
         addItemButton.addTarget(self, action: #selector(addItemButtonPressed(_:)), for: .touchUpInside)
-        addItemButton.frame = CGRect(x: 0, y: 0, width: 36, height: 36)
+        addItemButton.frame = CGRect(x: view.bounds.maxX - view.bounds.midX / 4, y: view.bounds.midY + view.bounds.maxY / 3.3, width: view.bounds.midX / 4.5, height: view.bounds.midX / 4.5)
         addItemButton.layer.cornerRadius = addItemButton.bounds.height / 2
-        addItemButton.backgroundColor = .systemGreen
+        addItemButton.backgroundColor = .systemYellow
         //button to navBar "trash"
         deleteAllButton = UIButton.init(type: .system)
         deleteAllButton.frame = CGRect(x: 0, y: 0, width: 36, height: 36)
+        deleteAllButton.setTitle("Remove all", for: .normal)
         deleteAllButton.setImage(UIImage(systemName: "trash"), for: .normal)
         deleteAllButton.addTarget(self, action: #selector(deleteAllIteams(_:)), for: .touchUpInside)
         
-        let addButton = UIBarButtonItem(customView: addItemButton)
+        _ = UIBarButtonItem(customView: addItemButton)
         let deleteButton = UIBarButtonItem(customView: deleteAllButton)
-        self.tabBarController?.navigationItem.rightBarButtonItems = [addButton, deleteButton]
+        view.addSubview(addItemButton)
+        navigationItem.rightBarButtonItems = [deleteButton]
     }
     
     @objc func addItemButtonPressed(_ sender: UIButton) {
@@ -90,13 +96,9 @@ class ViewController: UIViewController {
         alertMessage.addAction(delete)
         alertMessage.addAction(cancelButton)
     }
-    
-    func saveItem() {
-        
-    }
 }
 
-extension ViewController: UITableViewDelegate {
+extension ItemsListController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         items.count
@@ -110,7 +112,7 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension ItemsListController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let cell = tableView.cellForRow(at: indexPath)
@@ -135,10 +137,13 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
         let saveAction = UIContextualAction(style: .normal, title: "Save") {[weak self] _, _, compliton in
-            self?.saveItem()
+            let saveItem = self?.items[indexPath.row]
+            self?.savedItems.append(saveItem ?? "")
             compliton(true)
         }
+        
         saveAction.backgroundColor = .systemGreen
         return UISwipeActionsConfiguration(actions: [saveAction])
     }
