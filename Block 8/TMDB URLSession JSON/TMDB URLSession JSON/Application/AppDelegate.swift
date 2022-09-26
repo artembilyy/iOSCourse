@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  TMDB JSON URLSession
+//  TMDB URLSession JSON
 //
 //  Created by Артем Билый on 21.09.2022.
 //

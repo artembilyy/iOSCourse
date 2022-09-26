@@ -4,15 +4,18 @@
 //
 
 import UIKit
+import RealmSwift
 
-class ViewController: UIViewController {
+class MoviesListController: UIViewController {
+    
+    private var realm = try! Realm()
     
     lazy var tableView: UITableView = {
-        let tablewView = UITableView(frame: view.bounds, style: .insetGrouped)
+        let tablewView = UITableView(frame: view.bounds, style: .grouped)
         return tablewView
     }()
     
-    var movies: [Movies] = []
+    var movies: [Movie] = []
     var genres: [Genre] = []
     
     override func viewDidLoad() {
@@ -24,8 +27,8 @@ class ViewController: UIViewController {
         getGenres()
     }
     
-    func getMovies() {
-        let API = "https://api.themoviedb.org/3/trending/all/week?api_key=b3187cf196a7681dee8805cdcec0d6ba"
+    func getMovies(page: Int = 1) {
+        let API = "https://api.themoviedb.org/3/trending/all/week?api_key=b3187cf196a7681dee8805cdcec0d6ba&page=\(page)"
         guard let apiURL = URL(string: API) else {
             fatalError("Invalid URL")
         }
@@ -70,12 +73,50 @@ class ViewController: UIViewController {
         }
         task.resume()
     }
+    
+    func saveMovie(media: Movie) {
+        let movieRealm = MovieRealm()
+        movieRealm.adult = media.adult
+        movieRealm.backdropPath = media.backdropPath
+        movieRealm.id = media.id
+        movieRealm.title = media.title
+        movieRealm.originalLanguage = media.originalLanguage
+        movieRealm.originalTitle = media.originalTitle
+        movieRealm.overview = media.overview
+        movieRealm.posterPath = media.posterPath
+        movieRealm.mediaType = media.mediaType
+        movieRealm.genreIDS.append(objectsIn: media.genreIDS)
+        movieRealm.popularity = media.popularity
+        movieRealm.releaseDate = media.releaseDate
+        movieRealm.video = media.video
+        movieRealm.voteAverage = media.voteAverage
+        movieRealm.voteCount = media.voteCount
+        movieRealm.name = media.name
+        movieRealm.originalName = media.originalTitle
+        movieRealm.firstAirDate = media.firstAirDate
+        movieRealm.originCountry.append(objectsIn: media.originCountry ?? [])
+        try? realm.write {
+            realm.add(movieRealm, update: .all)
+        }
+    }
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+
+extension MoviesListController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let saveAction = UIContextualAction(style: .normal, title: "Save") { [weak self] _, _, complition in
+            self?.saveMovie(media: (self?.movies[indexPath.row])!)
+            complition(true)
+        }
+        saveAction.backgroundColor = .systemGreen
+        let config = UISwipeActionsConfiguration(actions: [saveAction])
+        config.performsFirstActionWithFullSwipe = false
+        return config
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -93,7 +134,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = UITableViewCell()
             var configuration = cell.defaultContentConfiguration()
             configuration.image = UIImage(systemName: "film")
-            configuration.text = (((movies[indexPath.row].originalTitle ?? movies[indexPath.row].name) ?? movies[indexPath.row].title) ?? "") + currentGenre
+            configuration.text = (((movies[indexPath.row].title ?? movies[indexPath.row].name) ?? movies[indexPath.row].originalName) ?? "") + currentGenre
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.font = UIFont(name: "Arial", size: 16)
             cell.contentConfiguration = configuration
